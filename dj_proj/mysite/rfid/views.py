@@ -7,6 +7,9 @@ from etravel_search.models import User_Journey
 
 
 def Ard(I):
+    """
+    >>insert tag detection code here<<
+    """
     U_ID=584 #from rfid tag
     if int(I)==U_ID:
         return True
