@@ -1,32 +1,34 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from .models import Cost
+from etravel_search.models import User_Journey
 
 # Create your views here.
 
 
 def Ard(I):
-    Journey_ID=2
-    if I==Journey_ID:
+    U_ID=584 #from rfid tag
+    if int(I)==U_ID:
         return True
     else:
         return False
 
 
 def index(request):
-    
-    l=Cost.objects.all()
+    J_ID=1 #different for every bus
+    l=User_Journey.objects.all()
+    S="Access Denied"
     for i in range(len(l)):
         record=l[i]
-        I=record.ID
-        T=record.To_city
-        F=record.From_city
-        P=record.Price
-        flag=Ard(I)
-        if(flag):
-            S="Access Granted"
-        else:
-            S="Access Denied"
+        I=record.id
+        U=record.User_id
+        J=record.Journey_id
+        if int(J)==J_ID:
+            flag=Ard(U)
+            if(flag):
+                S="Access Granted"
+                break
+                
 
     return HttpResponse("<h2>"+S+"</h2>")
 
