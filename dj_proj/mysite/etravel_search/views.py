@@ -32,3 +32,6 @@ def save_req(request):
             S.save()
     #return render(request,'home_page/home.html',{'form':SearchForm()})
     return redirect('https://bus.makemytrip.com/bus/search/'+S_f+'/'+S_t+'/'+S_d)
+
+
+
