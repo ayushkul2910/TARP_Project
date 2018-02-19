@@ -15,9 +15,6 @@ def index(request):
     #return render(request, 'home_page/home.html')
     return HttpResponse(template.render(context,request))
 
-def detail(request,ID):
-    return HttpResponse("<h2>Details for ID:"+str(ID)+"</h2>")
-
 
 def save_req(request):
     if request.method=='POST':

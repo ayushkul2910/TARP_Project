@@ -2,16 +2,20 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from .models import Cost
 from etravel_search.models import User_Journey
+import serial
 
 # Create your views here.
 
 
 def Ard(I):
-    """
-    >>insert tag detection code here<<
-    """
-    U_ID=584 #from rfid tag
-    if int(I)==U_ID:
+
+    
+    ser=serial.Serial("COM3",9600)
+    serin =ser.readline()
+    serin=str(serin)[2:9]
+    ser.close()
+
+    if str(I)==str(serin):
         return True
     else:
         return False

@@ -6,7 +6,6 @@ urlpatterns=[
 
     url(r'^results$', views.save_req, name='save_req'),
 
-    url(r'^(?P<ID>[0-9]+)$',views.detail,name='detail'),
     
     url(r'^service-worker.js', (TemplateView.as_view(
     template_name="service-worker.js",
