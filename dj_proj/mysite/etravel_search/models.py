@@ -23,6 +23,7 @@ class Bus(models.Model):
 class User_Journey(models.Model):
     User_id=models.CharField(max_length=10)
     Journey_id=models.CharField(max_length=10)
+    Session_id=models.BooleanField(default=False)
 
     def __str__(self):
-        return str(self.User_id)+' '+str(self.Journey_id)
+        return str(self.User_id)+' '+str(self.Journey_id)+' '+str(self.Session_id)

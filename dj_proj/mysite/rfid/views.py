@@ -30,6 +30,8 @@ def index(request):
             flag=Ard(U)
             if(flag):
                 S="Access Granted"
+                record.Session_id=True
+                record.save(update_fields=["Session_id"])
                 break
                 
 
