@@ -35,6 +35,7 @@ ALLOWED_HOSTS = [
 # Application definition
 
 INSTALLED_APPS = [
+    'rfid',
     'etravel_search',
     'django.contrib.admin',
     'django.contrib.auth',
