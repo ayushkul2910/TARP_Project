@@ -27,3 +27,12 @@ class User_Journey(models.Model):
 
     def __str__(self):
         return str(self.User_id)+' '+str(self.Journey_id)+' '+str(self.Session_id)
+
+
+class Passenger(models.Model):
+    User_id=models.CharField(max_length=10)
+    User_name=models.CharField(max_length=50)
+    Credit=models.CharField(max_length=8)
+
+    def __str__(self):
+        return str(self.User_id)+' '+str(self.User_name)+' '+str(self.Credit)

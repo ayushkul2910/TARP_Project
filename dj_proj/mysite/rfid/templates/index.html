@@ -15,8 +15,13 @@
 <h2>Touch Bus Card To Enter!</h2>
 <br><br>
 <div style="border:2px solid black;height:30%;width:50%">
-<h1>{{ S }}</h1>
-<h2>{{U}}</h2>
+<h1>Welcome Mr. {{U}}</h1>
+{% if S == "Access Granted" %}
+<h1 style="color:rgb(78, 175, 13);">{{S}}</h1>
+{% endif %}
+{% if S != "Access Granted" %}
+<h1 style="color:red;">{{S}}</h1>
+{% endif %}
 </div>
 </center>
 </body>
