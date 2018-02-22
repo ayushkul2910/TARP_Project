@@ -32,10 +32,10 @@
             </h2>
             <form id="bookingForm" action="results" onsubmit="return validateForm()" method="POST">
                 {% csrf_token %}
-                <label>To: </label>
-                <input id="currentCity" type="text" placeholder="Enter current city" name="To"><br>
-                <label for="">From: </label>
-                <input id="destinationCity" type="text" placeholder="Enter destination city" name="From"><br>
+                <label>From: </label>
+                <input id="currentCity" type="text" placeholder="Enter current city" name="From"><br>
+                <label for="">To: </label>
+                <input id="destinationCity" type="text" placeholder="Enter destination city" name="To"><br>
                 <label>Date</label>
                 <input type="date" name="date">
                 <input type="submit" value="Search!" id="submitButton">

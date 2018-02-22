@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.template import loader
 from .models import Bus,Search
+from rfid.models import Cost
 from .forms import SearchForm
 from datetime import datetime
 
@@ -16,6 +17,7 @@ def index(request):
     return HttpResponse(template.render(context,request))
 
 
+
 def save_req(request):
     if request.method=='POST':
         S=SearchForm(request.POST)
@@ -27,8 +29,19 @@ def save_req(request):
 
         if(S.is_valid()):
             S.save()
-    #return render(request,'home_page/home.html',{'form':SearchForm()})
-    return redirect('https://bus.makemytrip.com/bus/search/'+S_f+'/'+S_t+'/'+S_d)
+    #return redirect('https://bus.makemytrip.com/bus/search/'+S_f+'/'+S_t+'/'+S_d)
+
+    C=Cost.objects.filter(From_city=S_f).filter(To_city=S_t)
+    for c in C:
+        G=Bus.objects.filter(J_ID=c.J_ID)
+                    
+    
+    context={
+        'G':G,
+    }
+
+    return render(request,'home_page/booking.html',context)
+
 
 
 

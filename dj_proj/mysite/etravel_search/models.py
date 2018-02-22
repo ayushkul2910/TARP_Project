@@ -16,9 +16,10 @@ class Bus(models.Model):
     ratings=models.CharField(max_length=200)
     seats=models.CharField(max_length=10)
     price=models.CharField(max_length=200)
+    J_ID=models.CharField(max_length=8)
 
     def __str__(self):
-        return self.bus_name+' '+self.bus_type+' '+self.dep_time+' '+self.arr_time+' '+self.travel_time+' '+self.ratings+' '+self.seats+' '+self.price
+        return self.bus_name+' '+self.bus_type+' '+self.dep_time+' '+self.arr_time+' '+self.travel_time+' '+self.ratings+' '+self.seats+' '+self.price+' '+self.J_ID
 
 class User_Journey(models.Model):
     User_id=models.CharField(max_length=10)

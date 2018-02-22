@@ -12,7 +12,7 @@ def Ard(I):
     ser=serial.Serial("COM3",9600)
     serin =ser.readline()
     serin=str(serin)[2:9]
-    ser.close()
+    #ser.close()
 
     if str(I)==str(serin):
         return True,serin
